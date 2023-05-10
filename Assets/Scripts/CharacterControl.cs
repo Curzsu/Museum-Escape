@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class CharacterControl : MonoBehaviour
 {
-    public float moveSpeed = 5;
-    public float angularSpeed = 135;
-    public float jumpForce = 5;
+    public float moveSpeed = 4;
+    public float angularSpeed = 115;
+    public float jumpForce = 1000 ;
     private bool isGrounded = true;
     private Rigidbody rb;
 
