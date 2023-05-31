@@ -19,7 +19,7 @@ public class ChangeColor : MonoBehaviour
             img = GetComponent<Image>();
             // 在duration时间内将image的颜色从fromColor变为toColor
             // 可以通过调整Ease函数和Loops参数来控制变化速度和循环次数
-            transform.DOShakePosition(4, 0.3f); //在随机方向震动3秒,振幅为3
+            transform.DOShakePosition(4, 0.2f); //在随机方向震动3秒,振幅为3
             text.DOFade(1, 6);
             img.DOFade(1, 6);
             text.DOColor(Color.red, 6); //3秒变红

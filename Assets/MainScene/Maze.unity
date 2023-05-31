@@ -4041,7 +4041,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 605682922}
-  m_LocalRotation: {x: 0.04359907, y: 0.000000030702957, z: -0.0000000013398943, w: 0.9990491}
+  m_LocalRotation: {x: 0.04359907, y: -0.000000030905564, z: 0.0000000013487363, w: 0.9990491}
   m_LocalPosition: {x: 8.826939, y: 4.721134, z: -3.2989147}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -11800,6 +11800,7 @@ GameObject:
   - component: {fileID: 1816371158}
   - component: {fileID: 1816371157}
   - component: {fileID: 1816371160}
+  - component: {fileID: 1816371161}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -11869,7 +11870,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1816371158}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1816371161}
+        m_TargetAssemblyTypeName: Restart, Assembly-CSharp
+        m_MethodName: onClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1816371158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11922,6 +11935,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: {fileID: 609396326}
   isDeath: 0
+--- !u!114 &1816371161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816371155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3a9f5e6e3c5606488d32a2a6b4ed6d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1817261107
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12134,12 +12159,12 @@ PrefabInstance:
     - target: {fileID: 6989307571982713937, guid: ad126dc7df82c0f4e9ee4a2f823f35cb,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.049638625
+      value: 0.049638618
       objectReference: {fileID: 0}
     - target: {fileID: 6989307571982713937, guid: ad126dc7df82c0f4e9ee4a2f823f35cb,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.010838941
+      value: -0.01083894
       objectReference: {fileID: 0}
     - target: {fileID: 6989307572102962868, guid: ad126dc7df82c0f4e9ee4a2f823f35cb,
         type: 3}
@@ -12338,7 +12363,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1897363084}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
@@ -12357,7 +12382,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1897363084}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
