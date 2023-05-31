@@ -5,7 +5,7 @@ using UnityEngine;
 public class Coin : MonoBehaviour
 {
     private Vector3 coinStartPosition;
-
+    public float rotationSpeed = 15f; // 旋转速度
     void Start()
     {
         // 记录金币的初始位置
@@ -14,6 +14,9 @@ public class Coin : MonoBehaviour
 
     void Update()
     {
+        // 让物体绕着 Y 轴旋转
+        transform.Rotate(0f, rotationSpeed * Time.deltaTime*4, 0f);
+        
         // 找到"Player"的玩家对象
         GameObject player = GameObject.FindWithTag("Player");
 
