@@ -13,11 +13,18 @@ public class Monster : MonoBehaviour
     private Transform player; // 玩家
     private Vector3 initialPosition; // 起始位置
     private bool isChasing = false; // 是否在追击
-
+    public AudioClip audioClip;
+    private AudioSource audioSource;
+    
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         initialPosition = transform.position;
+        // 创建一个 AudioSource 组件并添加到当前对象上
+        audioSource = gameObject.AddComponent<AudioSource>();
+
+        // 将 AudioClip 赋值给 AudioSource
+        audioSource.clip = audioClip;
     }
 
     private void Update()
@@ -29,6 +36,7 @@ public class Monster : MonoBehaviour
         else
         {
             Chase();
+            
         }
     }
 
@@ -57,6 +65,9 @@ public class Monster : MonoBehaviour
             {
                 // 玩家进入追击范围，切换状态为追击
                 isChasing = true;
+                Debug.Log("666666");
+                // 播放 AudioClip
+                audioSource.Play();
             }
         }
     }

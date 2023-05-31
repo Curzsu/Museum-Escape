@@ -12,6 +12,7 @@ TagManager:
   - Cherry
   - shader
   - Teleport
+  - TeleportHint
   layers:
   - Default
   - TransparentFX

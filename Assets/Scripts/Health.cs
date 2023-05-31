@@ -12,6 +12,7 @@ public class Health : MonoBehaviour
     public GameObject deathUI;
     public bool isDeath = false;
     public Transform ghost;
+    
 
     private void Update()
     {
