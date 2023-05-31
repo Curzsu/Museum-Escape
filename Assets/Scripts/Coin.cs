@@ -27,7 +27,7 @@ public class Coin : MonoBehaviour
             transform.position = Vector3.Lerp(transform.position, player.transform.position, Time.deltaTime * 6f);
 
             // 当金币与玩家之间的距离小于等于0.2f时，销毁金币
-            if (distance <= 0.2f)
+            if (distance <= 0.55f)
             {
                 CollectCoin(player);
             }
