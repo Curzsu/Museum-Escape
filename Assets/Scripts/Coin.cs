@@ -6,10 +6,13 @@ public class Coin : MonoBehaviour
 {
     private Vector3 coinStartPosition;
     public float rotationSpeed = 15f; // 旋转速度
+    public ScoreController scoreController;   // 得分UI脚本
+
     void Start()
     {
         // 记录金币的初始位置
         coinStartPosition = transform.position;
+        scoreController = GameObject.Find("CoinScore").GetComponent<ScoreController>();
     }
 
     void Update()
@@ -24,7 +27,7 @@ public class Coin : MonoBehaviour
         float distance = Vector3.Distance(transform.position, player.transform.position);
 
         // 当金币与玩家之间的距离小于等于0.5f时，开始移动金币，否则将金币返回到初始位置
-        if (distance <= 6.5f)
+        if (distance <= 4.5f)
         {
             // 使金币向玩家飞去，采用Lerp函数进行平滑的运动
             transform.position = Vector3.Lerp(transform.position, player.transform.position, Time.deltaTime * 6f);
@@ -45,5 +48,7 @@ public class Coin : MonoBehaviour
     void CollectCoin(GameObject player)
     {
         Destroy(gameObject);
+        // 增加分数值
+        scoreController.AddScore(5);
     }
 }

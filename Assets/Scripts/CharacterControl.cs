@@ -23,13 +23,13 @@ public class CharacterControl : MonoBehaviour
     void Update()
     {
         Jump();
+        
     }
 
     void Move()
     {
         float v = Input.GetAxis("Vertical");
         float h = Input.GetAxis("Horizontal");
-
         transform.Translate(Vector3.forward * v * Time.deltaTime * moveSpeed);
         transform.Rotate(Vector3.up * h * Time.deltaTime * angularSpeed);
     }

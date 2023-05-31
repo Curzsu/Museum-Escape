@@ -1,35 +1,89 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Monster : MonoBehaviour
 {
-    public float speed = 5f;
-    public float seeDistance = 5f;
+    public float patrolRange = 5.0f; // 巡逻半径
+    public float chaseRange = 3.0f; // 追击半径
+    public float chaseSpeed = 2.0f; // 追击速度
+    public float patrolSpeed = 1.0f; // 巡逻速度
+    public Transform[] waypoints; // 巡逻点数组
+    private int currentWaypointIndex = 0; // 当前巡逻点索引
+    private Transform player; // 玩家
+    private Vector3 initialPosition; // 起始位置
+    private bool isChasing = false; // 是否在追击
 
-    private Vector3 startPosition;
-
-    void Start()
+    private void Start()
     {
-        startPosition = transform.position;
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        initialPosition = transform.position;
     }
 
-    void Update()
+    private void Update()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        float distance = Vector3.Distance(transform.position, player.transform.position);
-
-        if (distance < seeDistance)
+        if (!isChasing)
         {
-            transform.LookAt(player.transform);
-            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+            Patrol();
         }
         else
         {
-            transform.LookAt(startPosition);
-            transform.Translate(Vector3.forward * speed * Time.deltaTime);
-            if (Vector3.Distance(transform.position, startPosition) < 0.1f)
+            Chase();
+        }
+    }
+
+    private void Patrol()
+    {
+        if (Vector3.Distance(transform.position, initialPosition) > patrolRange)
+        {
+            // 超出巡逻范围，返回起始位置
+            transform.position = Vector3.MoveTowards(transform.position, initialPosition, patrolSpeed * Time.deltaTime);
+        }
+        else
+        {
+            // 在巡逻范围内，移动到下一个巡逻点
+            Vector3 target = waypoints[currentWaypointIndex].position;
+            target.y = transform.position.y; // 垂直方向不变
+            Vector3 direction = Vector3.ProjectOnPlane(target - transform.position, Vector3.up); // 只在水平方向上移动
+            transform.position += direction.normalized * patrolSpeed * Time.deltaTime;
+
+            if (Vector3.Distance(transform.position, waypoints[currentWaypointIndex].position) < 0.1f)
             {
-                transform.position = startPosition;
+                // 到达当前巡逻点，选择下一个巡逻点
+                currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
+            }
+
+            if (IsPlayerInRange(chaseRange))
+            {
+                // 玩家进入追击范围，切换状态为追击
+                isChasing = true;
             }
         }
+    }
+
+    private void Chase()
+    {
+        Vector3 target = player.position;
+        target.y = transform.position.y; // 垂直方向不变
+        Vector3 direction = Vector3.ProjectOnPlane(target - transform.position, Vector3.up); // 只在水平方向上移动
+        transform.position += direction.normalized * chaseSpeed * Time.deltaTime;
+
+        if (Vector3.Distance(transform.position, player.position) < 0.2f)
+        {
+            // 到达追击点，停止追击
+            isChasing = false;
+        }
+
+        if (!IsPlayerInRange(chaseRange * 2))
+        {
+            // 玩家不在视野范围内，返回原位
+            transform.position = Vector3.MoveTowards(transform.position, initialPosition, patrolSpeed * Time.deltaTime);
+            isChasing = false;
+        }
+    }
+
+    private bool IsPlayerInRange(float range)
+    {
+        return Vector3.Distance(transform.position, player.position) <= range && player.CompareTag("Player");
     }
 }
