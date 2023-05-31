@@ -11,9 +11,17 @@ public class Health : MonoBehaviour
     public Rigidbody rb;
     public GameObject deathUI;
     public bool isDeath = false;
+    public Transform ghost;
 
     private void Update()
     {
+        // 获取目标物体的当前位置
+        Vector3 objPos = ghost.position;
+        if (objPos.y < -30)
+        {
+            isDeath = true;
+            Die();
+        }
         if (currentHealth <= 10 && currentHealth != 0)
         {
              rb = GetComponent<Rigidbody>();
@@ -62,7 +70,7 @@ public class Health : MonoBehaviour
         Destroy(cherry);
     }
 
-    void Die()
+    public void Die()
     {
         deathUI = GameObject.FindWithTag("Death");
         deathUI.SetActive(true);

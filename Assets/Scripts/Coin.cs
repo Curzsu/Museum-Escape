@@ -7,6 +7,7 @@ public class Coin : MonoBehaviour
     private Vector3 coinStartPosition;
     public float rotationSpeed = 15f; // 旋转速度
     public ScoreController scoreController;   // 得分UI脚本
+   
 
     void Start()
     {

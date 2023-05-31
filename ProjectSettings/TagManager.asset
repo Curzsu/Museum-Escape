@@ -11,6 +11,7 @@ TagManager:
   - Death
   - Cherry
   - shader
+  - Teleport
   layers:
   - Default
   - TransparentFX
