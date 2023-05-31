@@ -52,7 +52,6 @@ public class Health : MonoBehaviour
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
-        
     }
 
     private void AddHealth(int health)
