@@ -41,13 +41,26 @@ public class Health : MonoBehaviour
         {
             TakeDamage(20);
         }
+
+        if (collision.gameObject.CompareTag("Cherry"))
+        {
+            AddHealth(20);
+        }
     }
 
     private void TakeDamage(int damage)
     {
         currentHealth -= damage;
-
         healthBar.SetHealth(currentHealth);
+        
+    }
+
+    private void AddHealth(int health)
+    {
+        currentHealth += health;
+        healthBar.SetHealth(currentHealth);
+        GameObject cherry = GameObject.FindWithTag("Cherry");
+        Destroy(cherry);
     }
 
     void Die()
