@@ -12,6 +12,6 @@ public class SceneLoader : MonoBehaviour
 
     void LoadScene()
     {
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("Maze");
     }
 }
