@@ -15,7 +15,7 @@ public class SoundManager : MonoBehaviour
 
         // 设置 AudioSource 的其他参数，例如播放音量、是否循环、在 Awake 中预加载等
         audioSource.volume = 1f;
-        audioSource.loop = false;
+        audioSource.loop = true;
         audioSource.playOnAwake = false;
         audioSource.volume = volume;
 
