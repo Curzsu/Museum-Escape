@@ -43,8 +43,8 @@ public class ScoreController : MonoBehaviour
     // 更新分数UI文本
     void UpdateScoreText()
     {
-        scoreText.text = "100/" + currentScore.ToString();
-        if (currentScore >= 10 && currentScore < 12)
+        scoreText.text = "50/" + currentScore.ToString();
+        if (currentScore >= 50 && currentScore < 52)
         {
             teleport.SetActive(true);
             teleportHints.SetActive(true);
