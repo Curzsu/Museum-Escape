@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class Flick : MonoBehaviour
 {
-    public float pushForce = 10.0f;//被弹开距离
-    //两点巡逻
-    public float speed = 1.0f; // 移动速度
+    public float pushForce = 10.0f;
+    public float speed = 1.0f;
     private Vector3 startPoint;
     private Vector3 endPoint;
     private float startTime;
@@ -14,16 +13,14 @@ public class Flick : MonoBehaviour
 
     void Start()
     {
-        //在物体开始移动前执行，初始化起点、终点、开始时间和总距离
-        startPoint = GameObject.Find("startPoint").transform.position;
-        endPoint = GameObject.Find("endPoint").transform.position;
+        startPoint = transform.Find("startPoint").position;
+        endPoint = transform.Find("endPoint").position;
         startTime = Time.time;
         journeyLength = Vector3.Distance(startPoint, endPoint);
     }
 
     void Update()
     {
-        //每帧调用一次，根据已经移动的距离计算当前位置，并通过插值函数（Lerp）将物体平滑地移动到目标位置。如果物体已经到达终点，则交换起点和终点，并重新开始移动
         float distCovered = (Time.time - startTime) * speed;
         float fracJourney = distCovered / journeyLength;
         transform.position = Vector3.Lerp(startPoint, endPoint, fracJourney);
@@ -35,7 +32,7 @@ public class Flick : MonoBehaviour
             startTime = Time.time;
         }
     }
-    //进入区域弹开
+
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -47,4 +44,5 @@ public class Flick : MonoBehaviour
         }
     }
 }
+
 
