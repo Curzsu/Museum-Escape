@@ -21412,7 +21412,7 @@ PrefabInstance:
     - target: {fileID: -6679943233324648276, guid: c0461aadc7484874abd3e47b05799c1e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 0.44
       objectReference: {fileID: 0}
     - target: {fileID: -5803353698304235768, guid: c0461aadc7484874abd3e47b05799c1e,
         type: 3}
@@ -21710,7 +21710,7 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1098878654}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
@@ -21945,7 +21945,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2373341236607274738, guid: c0461aadc7484874abd3e47b05799c1e, type: 3}
 --- !u!64 &1098878688
@@ -26797,7 +26797,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1398311276}
-  m_LocalRotation: {x: 0.04359913, y: 0.000000013418954, z: -5.856116e-10, w: 0.9990491}
+  m_LocalRotation: {x: 0.04359913, y: 0.000000004111979, z: -1.7944937e-10, w: 0.9990491}
   m_LocalPosition: {x: -57.3, y: 1.2, z: 58}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -33722,17 +33722,17 @@ PrefabInstance:
     - target: {fileID: 6989307571982713937, guid: ad126dc7df82c0f4e9ee4a2f823f35cb,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.12489978
+      value: -0.12489979
       objectReference: {fileID: 0}
     - target: {fileID: 6989307571982713937, guid: ad126dc7df82c0f4e9ee4a2f823f35cb,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.04963863
+      value: 0.049638625
       objectReference: {fileID: 0}
     - target: {fileID: 6989307571982713937, guid: ad126dc7df82c0f4e9ee4a2f823f35cb,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.010838946
+      value: -0.010838944
       objectReference: {fileID: 0}
     - target: {fileID: 6989307572102962868, guid: ad126dc7df82c0f4e9ee4a2f823f35cb,
         type: 3}
@@ -34231,7 +34231,7 @@ GameObject:
   - component: {fileID: 1882267466}
   m_Layer: 0
   m_Name: chalu (6)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 1
