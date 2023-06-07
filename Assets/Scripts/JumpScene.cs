@@ -21,6 +21,6 @@ public class JumpScene : MonoBehaviour
         yield return new WaitForSeconds(fadeAnimator.GetCurrentAnimatorStateInfo(0).length);
 
         // 跳转到下一个场景
-        SceneManager.LoadScene("LoadingScreen");
+        SceneManager.LoadScene("LoadingScreen2");
     }
 }
